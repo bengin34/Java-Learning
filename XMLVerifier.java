@@ -47,14 +47,14 @@ public class XMLVerifier {
         XMLInputFactory factory = XMLInputFactory.newInstance();
         XMLStreamReader reader = factory.createXMLStreamReader(inputStream);
 
-        while(reader.hasNext()) {
-            reader.next();
-        }
+        // while(reader.hasNext()) {
+        //     reader.next();
+        // }
 
         reader.close();
         inputStream.close();
 
-        return true;
+        return reader.hasNext();
     }
 // XML dosyasını okuyarak, dosyanın geçerli olup olmadığını kontrol eden metod.
     private static void formatXML(String inputFile, String outputFile) throws Exception {
@@ -143,5 +143,5 @@ public class XMLVerifier {
 // Yukarıdaki örnek, input.xml dosyasını girdi olarak alacak ve dosyanın geçerli olup olmadığını kontrol edecek. İkinci bir parametre belirtilmişse, dosyayı belirtilen formatta (her etiketin yeni bir satıra yerleştirildiği ve her seviye için iki boşluk kullanıldığı) kaydedecektir. Aksi takdirde, sadece geçerliliğini kontrol edecek ve sonucunu ekrana yazdıracaktır.
 
 
-    
+
 
